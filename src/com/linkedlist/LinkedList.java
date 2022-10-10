@@ -81,6 +81,21 @@ public class LinkedList {
 		head = head.ref;
 	}
 
+	public void deleteLast() {
+
+		if (head == null)
+			System.out.println("Linked List is Empty");
+		else if (head.ref == null)
+			head = null;
+		else {
+			Node temp = head;
+			while (temp.ref.ref != null) {
+				temp = temp.ref;
+			}
+			temp.ref = null;
+		}
+	}
+
 	public static void main(String[] args) {
 		LinkedList list = new LinkedList();
 		System.out.println("Welcome to LinkedList program");
@@ -94,12 +109,10 @@ public class LinkedList {
 		int position = sc.nextInt();
 		list.addAtPosition(30, position);
 		list.display();
-
-		list.deleteFirst();
+//		list.deleteFirst();
+//		list.display();
+		list.deleteLast();
 		list.display();
-		list.deleteFirst();
-		list.display();
-
 	}
 
 }
